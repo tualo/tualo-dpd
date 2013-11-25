@@ -3,7 +3,7 @@
 	"description": "DPD Input",
 	"homepage": "http://www.tualo.de",
 	"main": "app.js",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"engines": {
 		"node": ">=0.8.0"
 	},
@@ -34,8 +34,5 @@
 		"jade": ">=0.28.2",
 		"querystring": "*",
 		"iconv": ">=2.0.7"
-	},
-        "scripts": {
-                "preinstall": "npm i -g forever"
-        }
+	}
 }
