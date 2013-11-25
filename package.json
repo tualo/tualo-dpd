@@ -1,0 +1,41 @@
+{
+	"name": "tualo-dpd",
+	"description": "DPD Input",
+	"homepage": "http://www.tualo.de",
+	"main": "app.js",
+	"version": "0.0.1",
+	"engines": {
+		"node": ">=0.8.0"
+	},
+	"maintainers": [
+	{
+		"name": "Thomas Hoffmann",
+		"email": "thomas.hoffmann@tualo.de",
+		"url": "http://tualo.de/"
+	}
+	],
+	"bin": {
+		"tualo-dpd": "./bin/tualo-dpd"
+	},
+	"license": [
+		{
+			"type": "GPLv3",
+			"url": "https://github.com/tualo/tualo-dpd/blob/master/LICENSE"
+		}
+	],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tualo/tualo-dpd.git"
+  },
+	"readmeFilename": "README.md",
+	"license": "GPL/V3",
+	"dependencies": {
+		"express": ">=3.1.1",
+		"jade": ">=0.28.2",
+		"querystring": "*",
+		"iconv": ">=2.0.7"
+	},
+        "scripts": {
+                "preinstall": "npm i -g forever"
+        }
+}

@@ -1,0 +1,9 @@
+{
+	"servers":[
+		{
+			"port": 8011,
+			"wawi_host": "localhost",
+			"wawi_path": "/wawi/index.php"
+		}
+	]
+}
