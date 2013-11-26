@@ -40,7 +40,7 @@ Ext.define('Tualo.app.components.Grid', {
 			};
 			
 			Ext.Ajax.request({
-				url: '/print',
+				url: './print',
 				scope: {
 					scope: this,
 					range: range,
@@ -70,7 +70,7 @@ Ext.define('Tualo.app.components.Grid', {
 			proxy: {
 				type: 'ajax',
 				timeout: 600000,
-				url: '/post',
+				url: './post',
 				reader: {
 					type: 'json',
 					root: 'data',

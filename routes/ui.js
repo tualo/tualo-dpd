@@ -20,9 +20,10 @@ var startUI = function(req, res, next) {
 var print_dpd = function(req,res,next){
 	var file_data = [];
 	var data = [];
-	data.push('KUnde');
+	data.push('Kunde');
 	data.push('Name1');
 	data.push('Name2');
+	data.push('Strasse');
 	data.push('Land');
 	data.push('PLZ');
 	data.push('Ort');
@@ -32,6 +33,7 @@ var print_dpd = function(req,res,next){
 	data = [];
 	data.push(req.body.id);
 	data.push(req.body.name);
+	data.push(req.body.zusatz);
 	data.push(req.body.strasse+' '+req.body.hn);
 	data.push('DE');
 	data.push(req.body.plz);
@@ -43,7 +45,7 @@ var print_dpd = function(req,res,next){
 	var iconv = new Iconv('UTF-8', 'ISO-8859-1');
 	var buffer = iconv.convert(file_data.join("\r\n"));
 	
-	fs.writeFile('/dpd-import/'+(new Date()).getTime()+'.txt', buffer, function (err) {
+	fs.writeFile('/dpd-import/'+req.params.path+'/'+(new Date()).getTime()+'.txt', buffer, function (err) {
 		res.json({
 			success: true,
 			err: err
@@ -150,9 +152,9 @@ var get = function(req, res, next){
 
 exports.initRoute=function(_app){
 	app=_app;
-	app.get("/",startUI);
-	app.post("/post",post);
-	app.get("/post",get);
-	app.post("/print",print_dpd);
+	app.get("/:path/",startUI);
+	app.post("/:path/post",post);
+	app.get("/:path/post",get);
+	app.post("/:path/print",print_dpd);
 }
 

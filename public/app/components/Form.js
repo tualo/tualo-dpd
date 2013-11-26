@@ -16,7 +16,7 @@ Ext.define('Tualo.app.components.Form', {
 		
 		scope.form = Ext.create('Ext.form.Panel',{
 			layout: 'column',
-			url: '/post',
+			url: './post',
 			bodyPadding: 15,
 			defaults: {
 				anchor: '100%'
@@ -48,7 +48,7 @@ Ext.define('Tualo.app.components.Form', {
 								proxy: {
 									type: 'ajax',
 									timeout: 600000,
-									url: '/post',
+									url: './post',
 									extraParams:{
 									cmp: 'cmp_sv_web_erfassung',
 									sid: scope.sid,
@@ -140,7 +140,7 @@ Ext.define('Tualo.app.components.Form', {
 								proxy: {
 									type: 'ajax',
 									timeout: 600000,
-									url: '/post',
+									url: './post',
 									extraParams:{
 									cmp: 'cmp_sv_web_erfassung',
 									sid: scope.sid,
@@ -210,7 +210,7 @@ Ext.define('Tualo.app.components.Form', {
 								proxy: {
 									type: 'ajax',
 									timeout: 600000,
-									url: '/post',
+									url: './post',
 									extraParams:{
 									cmp: 'cmp_sv_web_erfassung',
 									sid: scope.sid,
@@ -274,7 +274,7 @@ Ext.define('Tualo.app.components.Form', {
 								proxy: {
 									type: 'ajax',
 									timeout: 600000,
-									url: '/post',
+									url: './post',
 									extraParams:{
 									cmp: 'cmp_sv_web_erfassung',
 									sid: scope.sid,
@@ -393,6 +393,24 @@ Ext.define('Tualo.app.components.Form', {
 							}
 						},
 						{
+							fieldLabel: "Zusatz",
+							id: scope.xid+'-zusatz',
+							name: 'zusatz',
+							allowBlank: true,
+							enableKeyEvents: true,
+							listeners: {
+								scope: scope,
+								keydown: function(fld,e,eopts){
+									var scope = this;
+									if(e.getKey()===13){
+										Ext.getCmp(scope.xid+'-zusatz').focus();
+										Ext.getCmp(scope.xid+'-zusatz').selectText();
+										return false;
+									}
+								}
+							}
+						},
+						{
 							fieldLabel: "PLZ",
 							id: scope.xid+'-plz',
 							name: 'plz',
@@ -408,7 +426,7 @@ Ext.define('Tualo.app.components.Form', {
 								proxy: {
 									type: 'ajax',
 									timeout: 600000,
-									url: '/post',
+									url: './post',
 									extraParams:{
 									cmp: 'cmp_sv_web_erfassung',
 									sid: scope.sid,
@@ -478,7 +496,7 @@ Ext.define('Tualo.app.components.Form', {
 								proxy: {
 									type: 'ajax',
 									timeout: 600000,
-									url: '/post',
+									url: './post',
 									extraParams:{
 									cmp: 'cmp_sv_web_erfassung',
 									sid: scope.sid,
@@ -542,7 +560,7 @@ Ext.define('Tualo.app.components.Form', {
 								proxy: {
 									type: 'ajax',
 									timeout: 600000,
-									url: '/post',
+									url: './post',
 									extraParams:{
 									cmp: 'cmp_sv_web_erfassung',
 									sid: scope.sid,
@@ -733,6 +751,7 @@ Ext.define('Tualo.app.components.Form', {
 			data.push({name:'Barcode',wert: 'P'+(new Date()).getTime()});
 			data.push({name:'Kundennummer',wert: values.absenderkunde});
 			data.push({name:'Name',wert: values.name});
+			data.push({name:'Zusatz',wert: values.zusatz});
 			data.push({name:'PLZ',wert: values.plz});
 			data.push({name:'Strasse',wert: values.strasse});
 			data.push({name:'HN',wert: values.hausnummer});
@@ -759,7 +778,7 @@ Ext.define('Tualo.app.components.Form', {
 			}
 			
 			Ext.Ajax.request({
-				url: '/post',
+				url: './post',
 				scope: {
 					scope: this,
 					param: data,
@@ -781,7 +800,9 @@ Ext.define('Tualo.app.components.Form', {
 					var str = sp[0];
 					var o = {
 						id: this.param[0].wert,
+						kunde: Ext.getCmp(this.scope.xid+'-absenderkunde').getValue(),
 						name: values.name,
+						zusatz: values.zusatz,
 						strasse: str,
 						hn: values.hausnummer,
 						plz: values.plz,
@@ -789,7 +810,7 @@ Ext.define('Tualo.app.components.Form', {
 						gewicht: values.gewicht
 					};
 					Ext.Ajax.request({
-						url: '/print',
+						url: './print',
 						scope: {
 							scope: this
 						},

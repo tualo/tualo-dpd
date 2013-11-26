@@ -4,6 +4,7 @@ var forever = require('forever');
 var path = require('path');
 
 if (process.argv.length>2){
+	
 	if (process.argv[2]=='start'){
 		forever.startDaemon(path.join(__dirname,'..','app.js'),{
 			uid: 'tualo-dpd'

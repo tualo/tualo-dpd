@@ -25,8 +25,8 @@ var fs = require('fs');
 var app = express();
 
 var initServer = function(){
-	
-	for(var i in config.servers){
+	i=0;
+	//for(var i in config.servers){
 		app.configure(function(){
 			app.set('port',config.servers[i].port);
 			app.set('wawi_host', config.servers[i].wawi_host);
@@ -50,10 +50,10 @@ var initServer = function(){
 		
 		app.server = server; // bring the baseDir to the project-route
 		app.startDirectory = __dirname; // bring the baseDir to the project-route
-		for(var i in routes){
-			require('./routes/'+routes[i]).initRoute(app);
+		for(var j in routes){
+			require('./routes/'+routes[j]).initRoute(app);
 		}
-	}
+	//}
 }
 
 function findConfiguration(){
