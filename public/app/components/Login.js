@@ -22,7 +22,7 @@ Ext.define('Tualo.app.components.Login', {
 			width: 400,
 			height: 200,
 			layout: 'anchor',
-			url: './post',
+			url: location.href+'/post',
 			bodyPadding: 15,
 			defaults: {
 					anchor: '100%'

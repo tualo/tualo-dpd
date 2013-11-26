@@ -70,7 +70,7 @@ Ext.define('Tualo.app.components.Grid', {
 			proxy: {
 				type: 'ajax',
 				timeout: 600000,
-				url: './post',
+				url: location.href+'/post',
 				reader: {
 					type: 'json',
 					root: 'data',

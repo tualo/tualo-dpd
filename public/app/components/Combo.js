@@ -22,7 +22,7 @@ Ext.define('Tualo.app.components.Combo', {
 				proxy: {
 					type: 'ajax',
 					timeout: 600000,
-					url: './post',
+					url: location.href+'/post',
 					extraParams:{
 						cmp: 'cmp_sv_web_erfassung',
 						sid: scope.sid,

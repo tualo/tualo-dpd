@@ -16,7 +16,7 @@ Ext.define('Tualo.app.components.Form', {
 		
 		scope.form = Ext.create('Ext.form.Panel',{
 			layout: 'column',
-			url: './post',
+			url: location.href+'/post',
 			bodyPadding: 15,
 			defaults: {
 				anchor: '100%'
@@ -48,7 +48,7 @@ Ext.define('Tualo.app.components.Form', {
 								proxy: {
 									type: 'ajax',
 									timeout: 600000,
-									url: './post',
+									url: location.href+'/post',
 									extraParams:{
 									cmp: 'cmp_sv_web_erfassung',
 									sid: scope.sid,
@@ -140,7 +140,7 @@ Ext.define('Tualo.app.components.Form', {
 								proxy: {
 									type: 'ajax',
 									timeout: 600000,
-									url: './post',
+									url: location.href+'/post',
 									extraParams:{
 									cmp: 'cmp_sv_web_erfassung',
 									sid: scope.sid,
@@ -210,7 +210,7 @@ Ext.define('Tualo.app.components.Form', {
 								proxy: {
 									type: 'ajax',
 									timeout: 600000,
-									url: './post',
+									url: location.href+'/post',
 									extraParams:{
 									cmp: 'cmp_sv_web_erfassung',
 									sid: scope.sid,
@@ -274,7 +274,7 @@ Ext.define('Tualo.app.components.Form', {
 								proxy: {
 									type: 'ajax',
 									timeout: 600000,
-									url: './post',
+									url: location.href+'/post',
 									extraParams:{
 									cmp: 'cmp_sv_web_erfassung',
 									sid: scope.sid,
@@ -426,7 +426,7 @@ Ext.define('Tualo.app.components.Form', {
 								proxy: {
 									type: 'ajax',
 									timeout: 600000,
-									url: './post',
+									url: location.href+'/post',
 									extraParams:{
 									cmp: 'cmp_sv_web_erfassung',
 									sid: scope.sid,
@@ -496,7 +496,7 @@ Ext.define('Tualo.app.components.Form', {
 								proxy: {
 									type: 'ajax',
 									timeout: 600000,
-									url: './post',
+									url: location.href+'/post',
 									extraParams:{
 									cmp: 'cmp_sv_web_erfassung',
 									sid: scope.sid,
@@ -560,7 +560,7 @@ Ext.define('Tualo.app.components.Form', {
 								proxy: {
 									type: 'ajax',
 									timeout: 600000,
-									url: './post',
+									url: location.href+'/post',
 									extraParams:{
 									cmp: 'cmp_sv_web_erfassung',
 									sid: scope.sid,
@@ -778,7 +778,7 @@ Ext.define('Tualo.app.components.Form', {
 			}
 			
 			Ext.Ajax.request({
-				url: './post',
+				url: location.href+'/post',
 				scope: {
 					scope: this,
 					param: data,
@@ -810,7 +810,7 @@ Ext.define('Tualo.app.components.Form', {
 						gewicht: values.gewicht
 					};
 					Ext.Ajax.request({
-						url: './print',
+						url: location.href+'/print',
 						scope: {
 							scope: this
 						},
