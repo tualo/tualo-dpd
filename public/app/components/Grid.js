@@ -30,8 +30,10 @@ Ext.define('Tualo.app.components.Grid', {
 			}
 			
 			var o = {
+				kunde: range[index].get('kundennummer'),
 				id: range[index].get('id'),
 				name: range[index].get('name'),
+				zusatz: range[index].get('zusatz'),
 				strasse: str,
 				hn: range[index].get('hn'),
 				plz: range[index].get('plz'),
@@ -40,7 +42,7 @@ Ext.define('Tualo.app.components.Grid', {
 			};
 			
 			Ext.Ajax.request({
-				url: './print',
+				url: location.href+'print',
 				scope: {
 					scope: this,
 					range: range,
@@ -80,6 +82,7 @@ Ext.define('Tualo.app.components.Grid', {
 			fields: [
 				{name:'id'},
 				{name:'name'},
+				{name:'zusatz'},
 				{name:'strasse'},
 				{name:'plz'},
 				{name:'hn'},
@@ -99,6 +102,7 @@ Ext.define('Tualo.app.components.Grid', {
 			columns: [
 				{text:'ID',dataIndex:'id'},
 				{text:'Name',dataIndex:'name'},
+				{text:'Zusatz',dataIndex:'zusatz'},
 				{text:'Strasse',dataIndex:'strasse'},
 				{text:'HN',dataIndex:'hn'},
 				{text:'PLZ',dataIndex:'plz'},

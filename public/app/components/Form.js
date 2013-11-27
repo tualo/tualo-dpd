@@ -385,8 +385,8 @@ Ext.define('Tualo.app.components.Form', {
 								keydown: function(fld,e,eopts){
 									var scope = this;
 									if(e.getKey()===13){
-										Ext.getCmp(scope.xid+'-plz').focus();
-										Ext.getCmp(scope.xid+'-plz').selectText();
+										Ext.getCmp(scope.xid+'-zusatz').focus();
+										Ext.getCmp(scope.xid+'-zusatz').selectText();
 										return false;
 									}
 								}
@@ -403,8 +403,8 @@ Ext.define('Tualo.app.components.Form', {
 								keydown: function(fld,e,eopts){
 									var scope = this;
 									if(e.getKey()===13){
-										Ext.getCmp(scope.xid+'-zusatz').focus();
-										Ext.getCmp(scope.xid+'-zusatz').selectText();
+										Ext.getCmp(scope.xid+'-plz').focus();
+										Ext.getCmp(scope.xid+'-plz').selectText();
 										return false;
 									}
 								}

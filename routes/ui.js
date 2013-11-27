@@ -28,10 +28,11 @@ var print_dpd = function(req,res,next){
 	data.push('PLZ');
 	data.push('Ort');
 	data.push('Gewicht');
+	data.push('ID');
 	file_data.push(data.join(';'));
 	
 	data = [];
-	data.push(req.body.id);
+	data.push(req.body.kunde);
 	data.push(req.body.name);
 	data.push(req.body.zusatz);
 	data.push(req.body.strasse+' '+req.body.hn);
@@ -39,6 +40,7 @@ var print_dpd = function(req,res,next){
 	data.push(req.body.plz);
 	data.push(req.body.ort);
 	data.push(req.body.gewicht);//Math.round((req.body.gewicht.replace(',','.').replace('-','.') )*100) );
+	data.push(req.body.id);
 	file_data.push(data.join(';'));
 	
 	//var buffer = new Buffer(,'utf8');
@@ -152,6 +154,7 @@ var get = function(req, res, next){
 
 exports.initRoute=function(_app){
 	app=_app;
+	app.get("/",startUI);
 	app.get("/:path/",startUI);
 	app.post("/:path/post",post);
 	app.get("/:path/post",get);
